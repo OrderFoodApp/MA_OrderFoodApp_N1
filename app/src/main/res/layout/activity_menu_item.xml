@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MenuItem">
+    <ImageButton
+        android:id="@+id/imgButBack1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/back"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="25dp"></ImageButton>
+
+    <TextView
+        android:id="@+id/tvMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sản Phẩm"
+        app:layout_constraintTop_toTopOf="@id/imgButBack1"
+        app:layout_constraintBottom_toBottomOf="@id/imgButBack1"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/imgButBack1"
+        android:layout_marginLeft="10dp"></TextView>
+    <ImageButton
+        android:id="@+id/imgButHeart1"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/heart"
+        app:layout_constraintEnd_toStartOf="@id/imgButCart1"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="10dp"></ImageButton>
+    <ImageButton
+        android:id="@+id/imgButCart1"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/cart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="25dp"></ImageButton>
+
+    <EditText
+        android:id="@+id/edtSearch1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Bạn đang cần sản phẩm nào ?"
+        android:drawableRight="@drawable/search"
+        app:layout_constraintTop_toBottomOf="@id/imgButBack1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:background="@drawable/line_edt"
+        android:drawablePadding="15dp"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:layout_marginTop="15dp"></EditText>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerProduct"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="130dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toStartOf="parent"></androidx.recyclerview.widget.RecyclerView>
+</androidx.constraintlayout.widget.ConstraintLayout>

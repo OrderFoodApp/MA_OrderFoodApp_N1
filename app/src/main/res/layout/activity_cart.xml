@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CartActi">
+
+    <ImageButton
+        android:id="@+id/imgButBack3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/backicon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"/>
+    <TextView
+        android:id="@+id/tvGioHang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Giỏ hàng"
+        app:layout_constraintTop_toTopOf="@id/imgButBack3"
+        app:layout_constraintStart_toEndOf="@id/imgButBack3"
+        app:layout_constraintBottom_toBottomOf="@id/imgButBack3"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:layout_marginLeft="10dp"></TextView>
+    <ImageButton
+        android:id="@+id/imgButFil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/filtericon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/imgButBack3"
+        android:layout_marginRight="15dp"></ImageButton>
+    <ListView
+        android:id="@+id/lvCart"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        app:layout_constraintTop_toBottomOf="@id/imgButBack3"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"></ListView>
+    <EditText
+        android:id="@+id/edtVoucher"
+        android:layout_width="240dp"
+        android:layout_height="50dp"
+        android:hint="Nhập mã khuyến mãi"
+        android:paddingLeft="20dp"
+        android:background="@drawable/line_edt"
+        app:layout_constraintTop_toBottomOf="@id/lvCart"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"></EditText>
+
+    <Button
+        android:id="@+id/btnApdung"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginRight="15dp"
+        android:text="Áp Dụng"
+        android:textSize="18sp"
+        android:textAllCaps="false"
+        android:background="@drawable/line_edt"
+        app:backgroundTint="#FF004D"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/edtVoucher"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintTop_toTopOf="@id/edtVoucher" />
+    <TextView
+        android:id="@+id/tvTongHang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tổng tiền hàng: "
+        android:textSize="17sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/edtVoucher"
+        app:layout_constraintStart_toStartOf="@id/edtVoucher"
+        android:layout_marginTop="20dp"></TextView>
+    <TextView
+        android:id="@+id/tvPhi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Phí giao hàng: "
+        android:textSize="17sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/tvTongHang"
+        app:layout_constraintStart_toStartOf="@id/edtVoucher"
+        android:layout_marginTop="10dp"></TextView>
+    <TextView
+        android:id="@+id/tvTong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tổng tiền: "
+        android:textSize="19sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/tvPhi"
+        app:layout_constraintStart_toStartOf="@id/edtVoucher"
+        android:layout_marginTop="15dp"></TextView>
+    <TextView
+        android:id="@+id/tvTongHangPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$ 150.00 "
+        android:textSize="17sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/edtVoucher"
+        app:layout_constraintEnd_toEndOf="@id/lvCart"
+        android:layout_marginTop="20dp"></TextView>
+
+    <TextView
+        android:id="@+id/tvPhiGiao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Miễn phí "
+        android:textColor="#4CAF50"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="@id/lvCart"
+        app:layout_constraintTop_toBottomOf="@id/tvTongHangPrice"></TextView>
+    <TextView
+        android:id="@+id/tvTongTien"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$ 150.00 "
+        android:textSize="19sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/tvPhiGiao"
+        app:layout_constraintEnd_toEndOf="@id/lvCart"
+        android:layout_marginTop="15dp"></TextView>
+    <Button
+        android:id="@+id/btnDat"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginRight="15dp"
+        android:text="Đặt Hàng"
+        android:textSize="20sp"
+        android:textAllCaps="false"
+        android:background="@drawable/line_edt"
+        app:backgroundTint="#FF004D"
+        app:layout_constraintTop_toBottomOf="@id/tvTong"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="15dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

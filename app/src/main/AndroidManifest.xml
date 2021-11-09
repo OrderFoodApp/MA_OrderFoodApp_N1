@@ -9,13 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MA_OrderFoodApp_N1">
-        <activity android:name=".MainActivity">
+        <activity android:name=".CartActi"></activity>
+        <activity android:name=".ProductDetails" />
+        <activity android:name=".MenuItem" />
+        <activity android:name=".Home" />
+        <activity android:name=".Introduce2" />
+        <activity android:name=".Introduce1" />
+        <activity android:name=".Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>
