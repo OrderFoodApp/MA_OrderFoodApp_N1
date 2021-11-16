@@ -25,7 +25,7 @@ public class Home extends AppCompatActivity {
     private FoodTypeAdapter mAdapterType;
 
     ImageButton imageButton;
-
+    ImageButton imgMAp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,7 +66,14 @@ public class Home extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        imgMAp = findViewById(R.id.omgButOrder);
+        imgMAp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Home.this, MapsActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
     private void prepareMovieData() {

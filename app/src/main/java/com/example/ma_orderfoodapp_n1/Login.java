@@ -58,7 +58,8 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 switch (v.getId()) {
-                    case R.id.sign_in_button:
+                    case R.id.imgGoogle:
+                        Log.e("Loi: ", "loi");
                         signIn();
                         break;
                     // ...
@@ -99,7 +100,7 @@ public class Login extends AppCompatActivity {
     public void updateUI(GoogleSignInAccount account) {
         if(account != null) {
             Toast.makeText(this, "Sigin in successfully", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(this,MainActivity.class));
+            startActivity(new Intent(Login.this,Introduce1.class));
 
         }else {
             Toast.makeText(this,"You Didnt signed in",Toast.LENGTH_LONG).show();
