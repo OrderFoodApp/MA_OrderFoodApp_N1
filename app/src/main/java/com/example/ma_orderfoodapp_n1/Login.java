@@ -4,10 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -17,27 +20,27 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 import static android.content.ContentValues.TAG;
 
 public class Login extends AppCompatActivity {
     Button btnLogin;
+    TextView tvRegister;
     GoogleSignInClient mGoogleSignInClient;
     int RC_SIGN_IN = 1;
+
+    EditText etUsername, etPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        btnLogin = findViewById(R.id.btnLogin);
-
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Login.this, Introduce1.class);
-                startActivity(intent);
-            }
-        });
+        initializeListeners();
+        onClickListeners();
 
         // Configure sign-in to request the user's ID, email address, and basic
 // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
@@ -67,6 +70,39 @@ public class Login extends AppCompatActivity {
             }
         });
 
+    }
+    private void onClickListeners() {
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (validateUsername() && validatePassword()) {
+                    ResponseRegisterClass responseRegisterClass = new ResponseRegisterClass(etPassword.getText().toString(),etUsername.getText().toString());
+
+                    ApiService apiService = Network.getInstance().create(ApiService.class);
+                    apiService.getUser(responseRegisterClass).enqueue(new Callback<ResponseClass>() {
+                        @Override
+                        public void onResponse(Call<ResponseClass> call, Response<ResponseClass> response) {
+                            if (response.body() != null) {
+                                Toast.makeText(Login.this, "Login successful", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(Login.this, Introduce1.class);
+                                intent.putExtra("username", response.body().getUsername());
+                                startActivity(intent);
+                            }
+                        }
+                        @Override
+                        public void onFailure(Call<ResponseClass> call, Throwable t) {
+                            Toast.makeText(Login.this, "Invalid credentials", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+            }
+        });
+        tvRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Login.this, Register.class));
+            }
+        });
     }
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
@@ -106,5 +142,30 @@ public class Login extends AppCompatActivity {
             Toast.makeText(this,"You Didnt signed in",Toast.LENGTH_LONG).show();
         }
 
+    }
+
+
+    private boolean validatePassword() {
+        if (TextUtils.isEmpty(etPassword.getText().toString())) {
+            etPassword.setError("password cannot be empty");
+            etPassword.requestFocus();
+            return false;
+        }
+        return true;
+    }
+
+    private void initializeListeners() {
+        etUsername = findViewById(R.id.edtMail);
+        etPassword = findViewById(R.id.edtPass);
+        btnLogin = findViewById(R.id.btnLogin);
+        tvRegister = findViewById(R.id.tvRegister);
+    }
+    private boolean validateUsername() {
+        if (TextUtils.isEmpty(etUsername.getText().toString())) {
+            etUsername.setError("username cannot be empty");
+            etUsername.requestFocus();
+            return false;
+        }
+        return true;
     }
 }
