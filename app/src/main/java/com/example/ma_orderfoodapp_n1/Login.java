@@ -39,6 +39,36 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        Log.e("Bún Type: ", R.drawable.buntype+"");
+        Log.e("Bún Đậu: ", R.drawable.bundaumamtom+"");
+        Log.e("Bún Riêu: ", R.drawable.bunrieucua+"");
+        Log.e("Bún Thịt Nướng: ", R.drawable.bunthitnuong+"");
+        Log.e("Bún Măng: ", R.drawable.mangga+"");
+
+        Log.e("Cơm Type: ", R.drawable.comtype+"");
+        Log.e("Cơm Cari: ", R.drawable.comcari+"");
+        Log.e("Cơm Chiên: ", R.drawable.comchienduongchau+"");
+        Log.e("Cơm đùi gà: ", R.drawable.comduiga+"");
+        Log.e("Cươm sườn: ", R.drawable.comsuonbicha+"");
+
+        Log.e("Phở Type: ", R.drawable.photype+"");
+        Log.e("Phở bò: ", R.drawable.phobo+"");
+        Log.e("Phở gà: ", R.drawable.phoga+"");
+        Log.e("Phở heo: ", R.drawable.phoheo+"");
+        Log.e("Phở sao: ", R.drawable.phosaotomthi+"");
+
+        Log.e("Vịt quay: ", R.drawable.vitquay+"");
+        Log.e("Miến gà: ", R.drawable.miengaa+"");
+        Log.e("Miến trộn: ", R.drawable.mientron+"");
+        Log.e("Xôi gà: ", R.drawable.xoiga+"");
+        Log.e("Cút xào me: ", R.drawable.cutxaome+"");
+        Log.e("hột vịt lộn: ", R.drawable.hotvitlon+"");
+
+        Log.e("Cháo type: ", R.drawable.chaohs+"");
+        Log.e("hủ tiếu: ", R.drawable.hutieunamvang+"");
+
+
+
         initializeListeners();
         onClickListeners();
 

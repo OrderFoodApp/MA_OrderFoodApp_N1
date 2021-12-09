@@ -7,9 +7,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MenuItem extends AppCompatActivity {
 
@@ -22,7 +28,32 @@ public class MenuItem extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_item);
 
-        prepareMovieData();
+        ApiService apiService = Network.getInstance().create(ApiService.class);
+        apiService.getAllFoods().enqueue(new Callback<List<ResponseFoodClass>>() {
+            @Override
+            public void onResponse(Call<List<ResponseFoodClass>> call, Response<List<ResponseFoodClass>> response) {
+                if (response.body() != null) {
+                    Toast.makeText(MenuItem.this, "List Foods", Toast.LENGTH_SHORT).show();
+                    Log.e("llll", response.body().toString());
+                    for(int i = 0; i < response.body().size(); i++){
+                        Foods f = new Foods();
+                        f.setImageId(response.body().get(i).getImageId());
+                        f.setFoodName(response.body().get(i).getFoodName());
+                        f.setDescription(response.body().get(i).getDescription());
+                        f.setFoodPrice(response.body().get(i).getFoodPrice());
+                        f.setFoodSale(response.body().get(i).getFoodSale());
+                        mListMovie.add(f);
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<ResponseFoodClass>> call, Throwable t) {
+                Toast.makeText(MenuItem.this, "Invalid credentials", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+//        prepareMovieData();
         recyclerView = (RecyclerView) findViewById(R.id.recyclerProduct);
         mAdapter = new FoodAdapter(this,mListMovie);
 

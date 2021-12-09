@@ -59,7 +59,7 @@ public class FoodTypeAdapter extends RecyclerView.Adapter<FoodTypeAdapter.MyView
     @Override
     public void onBindViewHolder(FoodTypeAdapter.MyViewHolder holder, int position) {
         FoodType foodType = foodList.get(position);
-        holder.imageView.setBackgroundResource(foodType.getTypeId());
+        holder.imageView.setImageResource(foodType.getTypeId());
         holder.name.setText(foodType.getTypeName());
     }
 
