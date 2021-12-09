@@ -58,7 +58,7 @@
         android:layout_width="150dp"
         android:layout_height="100dp"
         android:background="@drawable/slide1"
-        android:src="@drawable/imageview"
+        android:src="@drawable/mientron"
         app:layout_constraintTop_toBottomOf="@id/imgMenu"
         android:layout_marginTop="10dp"
         app:layout_constraintStart_toEndOf="@id/slider1"
